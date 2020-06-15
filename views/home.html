@@ -1,0 +1,58 @@
+<h2>Explore the API</h2>
+
+<p>Congratulations! You just authorized this client to fetch data from <code>api.storyblok.com</code> using OAuth2.</p>
+<p>Click on the buttons below to explore <code>api.storyblok.com</code> API</p>
+
+<div id="app">
+  <button @click="openNew"
+          class="btn btn-primary">
+    New
+  </button>
+
+  <form @submit.prevent="createOrUpdate"
+        v-if="showForm"
+        class="mt-3 mb-3">
+    <div class="form-group">
+      <label for="story-name">Name</label>
+      <input id="story-name" class="form-control" type="text" v-model="story.name" />
+    </div>
+    <div class="form-group">
+      <label for="story-slug">Slug</label>
+      <input id="story-slug" class="form-control" type="text" v-model="story.slug" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <div>
+    <table class="table mt-3">
+      <tr v-for="story in stories"
+          :key="story.id">
+        <td>
+          {{ story.name }}
+        </td>
+        <td>
+          <button @click="editStory(story)"
+                  class="btn btn-danger">
+            Edit
+          </button>
+          <button @click.prevent="remove(story.id)"
+                  class="btn btn-danger">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var SPACE_ID = <%= space_id %>
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+<script type="module" src="/app.js"></script>
+
+<p id="display-json">Click on the buttons above, the response will show here.</p>
+
+<p>Your access token: <code><%= access_token %></code></p>
+<p><a class="btn btn-outline-secondary" href="/refresh?space_id=<%= space_id %>">Refresh Access Token</a></p>
