@@ -6,7 +6,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "crypto-js": "^4.0.0",
     "dotenv": "^8.2.0",
     "grant-koa": "^5.2.0",
