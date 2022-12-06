@@ -17,7 +17,7 @@
     "koa-router": "^9.0.1",
     "koa-session": "^6.0.0",
     "koa-static": "^5.0.0",
-    "qs": "^6.9.4",
+    "qs": "^6.9.7",
     "storyblok-js-client": "^2.5.0",
     "uuid": "^8.1.0"
   }
